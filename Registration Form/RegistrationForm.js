@@ -228,7 +228,7 @@ function test() {
     let sscBoardEl = document.getElementById("sscBoard");
     let sscScoreEl = document.getElementById("sscScore");
     let studyingEl = document.querySelector('input[name="studying"]:checked');
-    let institutionNameEl = document.getElementById("InstituteName");
+    let institutionNameEle = document.getElementById("instituteName");
     let selectedIdEle = document.getElementById("selectedId");
     let educationBranchEl = document.getElementById("educationBranch");
     let overallPercentEl = document.getElementById("overallPercent");
@@ -256,7 +256,7 @@ function test() {
         sscBoard: sscBoardEl.value,
         sscScore: sscScoreEl.value,
         studying: studyingEl.value,
-        institutionName: institutionNameEl.value,
+        instituteName: institutionNameEle.value,
         selectedId: selectedIdEle.value,
         educationBranch: educationBranchEl.value,
         overallPercent: overallPercentEl.value,
@@ -305,7 +305,7 @@ function test() {
     sscBoardEl.value = "";
     sscScoreEl.value = "";
     studyingEl.value = "";
-    institutionNameEl.value = "";
+    institutionNameEle.value = "";
     selectedIdEle.value = "";
     educationBranchEl.value = "";
     overallPercentEl.value = "";
@@ -316,6 +316,7 @@ function test() {
     semTextBtn.textContent = "No Choosen File";
 
 }
+
 
 
 let submitBtnEl = document.getElementById("submitBtn");
@@ -514,7 +515,7 @@ const onClick = document.getElementById("onClickRadio");
 const pursuing = document.getElementById("pursuing");
 
 onClick.addEventListener("click", function(event) {
-    console.log(event.target.value);
+
     if (event.target.value === "Yes") {
         let inputContainer = document.createElement("div");
         let labelElement = document.createElement("label");
@@ -530,11 +531,11 @@ onClick.addEventListener("click", function(event) {
         labelSpanEl.classList.add("star");
         labelElement.appendChild(labelSpanEl);
 
-        let InstituteNameEl = document.createElement("input");
-        InstituteNameEl.id = "InstituteName";
-        InstituteNameEl.placeholder = "Enter Institutaion Name";
-        InstituteNameEl.classList.add("size");
-        inputContainer.appendChild(InstituteNameEl);
+        let instituteNameEl = document.createElement("input");
+        instituteNameEl.id = "instituteName";
+        instituteNameEl.placeholder = "Enter Institutaion Name";
+        instituteNameEl.classList.add("size");
+        inputContainer.appendChild(instituteNameEl);
         pursuing.appendChild(inputContainer);
 
 

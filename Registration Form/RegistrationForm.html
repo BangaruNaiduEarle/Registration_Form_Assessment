@@ -13,7 +13,6 @@
     <form onsubmit="test()">
         <div id="sectionPersonalDetails">
             <div class="bg-container">
-
                 <header class="top-heading">Registration Form</header>
                 <h1 class="heading">Personal Details:</h1>
                 <label class="name" for="firstName">Name: <span class="star">*</span></label>
@@ -174,10 +173,10 @@
                 <div id="onClickRadio">
                     <div>
                         <input type="radio" class="option" value="Yes" name="studying" /> Yes
-                        <p class="errMsg" id="currentPursuingErrMsg"></p>
+
                     </div>
                     <div>
-                        <input type="radio" class="option" value="No" name="studying" checked /> No
+                        <input type="radio" class="option" name="studying" checked /> No
                     </div>
                 </div>
                 <div id="pursuing"></div>
@@ -247,7 +246,7 @@
                 <div class="btn-container d-flex flex-row justify-content-center">
 
                     <div>
-                        <button class="final-button" onclick="display('sectionPersonalDetails')" id="submitBtn" type="submit">Submit</button>
+                        <button class="final-button" onclick="display('sectionPersonalDetails')" id="submitBtn">Submit</button>
                     </div>
                 </div>
 
@@ -260,4 +259,3 @@
 </body>
 
 </html>
-
