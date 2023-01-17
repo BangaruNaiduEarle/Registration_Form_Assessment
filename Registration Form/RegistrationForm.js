@@ -84,6 +84,8 @@ function getApplicationDataFromLocalStorage() {
 let ApplicationDataList = getApplicationDataFromLocalStorage();
 let ApplicationCount = ApplicationDataList.length;
 
+let x = false;
+
 function test() {
     event.preventDefault();
     let firstNameEl = document.getElementById("firstName");
@@ -114,8 +116,6 @@ function test() {
     let overallPercentEl = document.getElementById("overallPercent");
     let backlogsEl = document.getElementById("backlogs");
 
-
-
     let profile = {
         applicantName: firstNameEl.value + lastNameEl.value,
         date: dateEl.value,
@@ -136,17 +136,25 @@ function test() {
         sscBoard: sscBoardEl.value,
         sscScore: sscScoreEl.value,
         studying: studyingEl.value,
-        instituteName: institutionNameEle.value,
-        selectedId: selectedIdEle.value,
-        educationBranch: educationBranchEl.value,
+        instituteName: "NA",
+        selectedId: "NA",
+        educationBranch: "NA",
         overallPercent: overallPercentEl.value,
         backlogs: backlogsEl.value,
         photoFile: realFileBtn.value,
         hscFile: hscFileBtn.value,
         sscFile: sscFileBtn.value,
         semFile: semFileBtn.value
-
     };
+    console.log(x)
+    if (x) {
+        profile = {
+            ...profile,
+            instituteName: institutionNameEle.value,
+            selectedId: selectedIdEle.value,
+            educationBranch: educationBranchEl.value,
+        }
+    }
 
     ApplicationCount = ApplicationCount + 1;
 
@@ -185,15 +193,17 @@ function test() {
     sscBoardEl.value = "";
     sscScoreEl.value = "";
     studyingEl.value = "";
-    institutionNameEle.value = "";
-    selectedIdEle.value = "";
-    educationBranchEl.value = "";
     overallPercentEl.value = "";
     backlogsEl.value = "";
     customTextBtn.textContent = "No Choosen File";
     hscTextBtn.textContent = "No Choosen File";
     sscTextBtn.textContent = "No Choosen File";
     semTextBtn.textContent = "No Choosen File";
+    if (x) {
+        institutionNameEle.value = "";
+        selectedIdEle.value = "";
+        educationBranchEl.value = "";
+    }
 
 }
 
@@ -394,9 +404,10 @@ const onClick = document.getElementById("onClickRadio");
 
 const pursuing = document.getElementById("pursuing");
 
-onClick.addEventListener("click", function(event) {
+onClick.addEventListener("change", function(event) {
 
     if (event.target.value === "Yes") {
+        x = true
         let inputContainer = document.createElement("div");
         let labelElement = document.createElement("label");
         labelElement.setAttribute("for", "head");
@@ -477,6 +488,7 @@ onClick.addEventListener("click", function(event) {
         inputContainer.appendChild(eduBranch);
 
     } else {
+        x = false
         pursuing.textContent = "";
     }
 })
